@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  influxdb:
+    image: influxdb:2.4.0
+    ports:
+      - '8086:8086'
+    networks:
+      shared_net:
+        ipv4_address: 172.25.0.2
+    volumes:
+      - ./data/influxdb/storage/:/var/lib/influxdb2
+    environment:
+      - INFLUXDB_DB=db0
+      - INFLUXDB_ADMIN_USER=${INFLUXDB_USERNAME}
+      - INFLUXDB_ADMIN_PASSWORD=${INFLUXDB_PASSWORD}
+    user: "1000"
+  grafana:
+    image: grafana/grafana:8.2.6
+    ports:
+      - '3000:3000'
+    networks:
+      shared_net:
+        ipv4_address: 172.25.0.3
+    volumes:
+      - ./data/grafana/plugins/:/var/lib/grafana/plugins
+      - ./data/grafana/log/:/var/log/grafana
+      - ./data/grafana/storage/:/var/lib/grafana
+      - ./data/grafana/provisioning/:/etc/grafana/provisioning
+    depends_on:
+      - influxdb
+    environment:
+      - GF_PATHS_DATA=/var/lib/grafana
+      - GF_PATHS_LOGS=/var/log/grafana
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+    user: "1000"
+  nodered:
+    image: nodered/node-red:2.2.3
+    ports:
+      - '1880:1880'
+    networks:
+      shared_net:
+        ipv4_address: 172.25.0.4
+    volumes:
+      - ./data/nodered/storage/:/var/lib/nodered
+      - ./data/nodered/flows/:/data
+    depends_on:
+      - influxdb
+    user: "1000"
+    
+networks:
+  shared_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/24
+          gateway: 172.25.0.1
+

@@ -1,0 +1,47 @@
+[
+    {
+        "id": "20b729bd136c2efe",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b4296ba42c3c5cd8",
+        "type": "mqtt in",
+        "z": "20b729bd136c2efe",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 320,
+        "wires": [
+            [
+                "b2936f0e1febeaf3"
+            ]
+        ]
+    },
+    {
+        "id": "b2936f0e1febeaf3",
+        "type": "mqtt out",
+        "z": "20b729bd136c2efe",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "x": 690,
+        "y": 320,
+        "wires": []
+    }
+]

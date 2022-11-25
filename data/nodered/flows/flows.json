@@ -1,0 +1,90 @@
+[
+    {
+        "id": "20b729bd136c2efe",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3aaf82d0d15e5a42",
+        "type": "mqtt-broker",
+        "name": "Online broker",
+        "broker": "https://broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f810552e60719535",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "Influxdb PolyIOT",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://172.25.0.2:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "b4296ba42c3c5cd8",
+        "type": "mqtt in",
+        "z": "20b729bd136c2efe",
+        "name": "\"Temperature Raspi\"",
+        "topic": "polytech_iot_temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "3aaf82d0d15e5a42",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "7c0da13e05203ff8"
+            ]
+        ]
+    },
+    {
+        "id": "7c0da13e05203ff8",
+        "type": "influxdb out",
+        "z": "20b729bd136c2efe",
+        "influxdb": "f810552e60719535",
+        "name": "PolyIOT Temperature",
+        "measurement": "polytech_iot_temperature",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "PolyIOT",
+        "bucket": "IOT",
+        "x": 780,
+        "y": 320,
+        "wires": []
+    }
+]
