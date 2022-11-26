@@ -48,6 +48,19 @@ services:
     depends_on:
       - influxdb
     user: "1000"
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports:
+      - '1883:1883'
+      - '9001:9001'
+    networks:
+      shared_net:
+        ipv4_address: 172.25.0.5
+    volumes:
+      - ./data/mosquitto/config/:/mosquitto/config/:ro
+      - ./data/mosquitto/log/:/mosquitto/log/
+      - ./data/mosquitto/data/:/mosquitto/data/
+    user: "1000"
     
 networks:
   shared_net:

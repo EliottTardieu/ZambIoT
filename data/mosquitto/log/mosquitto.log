@@ -1,0 +1,35 @@
+ 
+1669470591: mosquitto version 2.0.15 starting
+1669470591: Config loaded from /mosquitto/config/mosquitto.conf.
+1669470591: Opening ipv4 listen socket on port 1883.
+1669470591: Opening ipv6 listen socket on port 1883.
+1669470591: mosquitto version 2.0.15 running
+1669470594: New connection from 172.25.0.4:36150 on port 1883.
+1669470594: New client connected from 172.25.0.4:36150 as nodered_afdbc949209aea22 (p2, c1, k180).
+1669470825: New connection from 192.168.1.87:48183 on port 1883.
+1669470825: New client connected from 192.168.1.87:48183 as pub1 (p2, c1, k60).
+1669470909: New connection from 172.25.0.4:49864 on port 1883.
+1669470909: New client connected from 172.25.0.4:49864 as nodered_c0b3fa46d2493350 (p2, c1, k180).
+1669472785: mosquitto version 2.0.15 starting
+1669472785: Config loaded from /mosquitto/config/mosquitto.conf.
+1669472785: Opening ipv4 listen socket on port 1883.
+1669472785: Opening ipv6 listen socket on port 1883.
+1669472785: mosquitto version 2.0.15 running
+1669472803: New connection from 192.168.1.87:35639 on port 1883.
+1669472803: New client connected from 192.168.1.87:35639 as pub1 (p2, c1, k60).
+1669472952: New connection from 192.168.1.162:56489 on port 1883.
+1669472952: New client connected from 192.168.1.162:56489 as 2 (p2, c1, k60).
+1669473028: New connection from 172.25.0.4:46876 on port 1883.
+1669473028: New client connected from 172.25.0.4:46876 as nodered_a8a769e294c234ad (p2, c1, k60).
+1669473061: New connection from 172.25.0.4:57296 on port 1883.
+1669473061: New client connected from 172.25.0.4:57296 as nodered_ae8bae065bbc6675 (p2, c1, k60).
+1669473204: New connection from 172.25.0.4:38202 on port 1883.
+1669473204: New client connected from 172.25.0.4:38202 as nodered_1fa383a982773d5b (p2, c1, k60).
+1669473241: New connection from 172.25.0.4:52600 on port 1883.
+1669473241: New client connected from 172.25.0.4:52600 as nodered_08732ad21b96a72a (p2, c1, k60).
+1669473557: New connection from 172.25.0.4:35186 on port 1883.
+1669473557: New client connected from 172.25.0.4:35186 as nodered_397425bca9f7731b (p2, c1, k60).
+1669474586: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1669475662: Client nodered_397425bca9f7731b closed its connection.
+1669475662: mosquitto version 2.0.15 terminating
+1669475662: Saving in-memory database to /mosquitto/data//mosquitto.db.

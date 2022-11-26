@@ -11,16 +11,14 @@ Multi-container Docker app built from the following services:
 To start the app:
 
 1. Install [docker-compose](https://docs.docker.com/compose/install/) on the docker host.
-1. Run the following command from the root of the cloned repo:
+1. Run the following command from the root of the cloned repo **(only for the first time)**:
 ```
-./run.sh
+docker compose up --build --remove-orphans
 ```
-
-To save the current app state:  
+1. Run the following command from the root of the cloned repo **(after the first build)**:
 ```
-./save.sh
-```   
-***Warning***: Use this at your own risks, you might not have a working solution if you overwrite the default images.
+docker compose up
+```
 
 ## Ports
 
