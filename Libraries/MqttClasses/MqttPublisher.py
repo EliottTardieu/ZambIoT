@@ -6,11 +6,12 @@ from Libraries.MqttClasses.MqttClient import MqttClient
 
 
 class MqttPublisher(MqttClient):
-    """Mqtt client used for sending objects. \n
-    The method when_published is called when a message is published. \n
-    The method on_connect is called when the client is connected to the broker (server)."""
-    def __init__(self, topic: str, client_id: str, mqtt_username: str, mqtt_password: str, mqtt_ip_broker: str, mqtt_port: int):
+    def __init__(self, topic: str, client_id: str, mqtt_ip_broker: str, mqtt_port: int, mqtt_username: str = "", mqtt_password: str = ""):
         """
+        Mqtt client used for sending objects. \n
+        The method when_published is called when a message is published. \n
+        The method on_connect is called when the client is connected to the broker (server).
+
         :param topic: the topic is the name/path of the data we want to retrieve (example: learningmqtt/test/sensors)
         :param client_id: the name of the client
         :param mqtt_username: to be set if an account system is implemented inside the broker
@@ -30,12 +31,12 @@ class MqttPublisher(MqttClient):
     def when_published(self, method: Callable[[MQTTMessageInfo, bytearray], None]):
         self.__when_published = method
 
-    # Used for sending messages, any objects can be sent
     def publish(self, message):
+        """Used to send message to the mqtt broker"""
         # Necessary for sending message multiple times
         self.client.loop_start()
         # pickle.dumps() is for converting an object to a bytearray
-        status = self.client.publish(self.topic, pickle.dumps(message))
+        status = self.client.publish(self.topic, message)
         self.when_published(status, message)
 
     # Method called by default when the client publish

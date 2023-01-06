@@ -1,6 +1,6 @@
 from Libraries.MqttClasses.MqttSubscriber import MqttSubscriber
 
-subscriber = MqttSubscriber("testMqtt", "2", "", "", "broker.hivemq.com", 1883)
+subscriber = MqttSubscriber("polytech/mqtt", "2", "broker.hivemq.com", 1883)
 subscriber.connect_mqtt()
 
 listen = True

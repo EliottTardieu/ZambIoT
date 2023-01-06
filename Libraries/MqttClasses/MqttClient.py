@@ -3,11 +3,11 @@ from paho.mqtt.client import Client
 
 
 class MqttClient:
-    """Class that manages the MQTT communication (sending and receiving). \n
-    The method on_connect is called when the client is connected to the broker (server).
-    """
     def __init__(self, topic: str, client_id: str, mqtt_username: str, mqtt_password: str, mqtt_ip_broker: str, mqtt_port: int):
         """
+        Class that manages the MQTT communication (sending and receiving). \n
+        The method on_connect is called when the client is connected to the broker (server).
+
         :param topic: the topic is the name/path of the data we want to retrieve (example: learningmqtt/test/sensors)
         :param client_id: the name of the client
         :param mqtt_username: to be set if an account system is implemented inside the broker
@@ -63,6 +63,7 @@ class MqttClient:
         self.__on_connect = method
 
     def connect_mqtt(self):
+        """Used to start the connection of the client to the broker, necessary to receive or send message via Mqtt"""
         self.__client.username_pw_set(self.__mqtt_username, self.__mqtt_password)
         self.__client.on_connect = self.on_connect
         self.__client.connect(self.__mqtt_ip_broker, self.__mqtt_port)
