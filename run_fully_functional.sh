@@ -1,0 +1,1 @@
+docker-compose -f fully_functional.yml up --build

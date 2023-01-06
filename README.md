@@ -1,61 +1,31 @@
-# docker-compose-influxdb-grafana-nodered
+# Modular docker-compose
 
-Multi-container Docker app built from the following services:
+## Before starting
 
-* [InfluxDB](https://github.com/influxdata/influxdb) - time series database
-* [Node-Red](https://github.com/node-red/node-red) - MQTT UI
-* [Grafana](https://github.com/grafana/grafana) - visualization UI for InfluxDB
+Please run the following commands in the current folder:
+```
+chmod +x *.sh
+```
+(This will allow you to run the scripts required after.)
 
 ## Quick Start
 
-To start the app:
-
-1. Install [docker-compose](https://docs.docker.com/compose/install/) on the docker host.
-1. Run the following command from the root of the cloned repo **(only for the first time)**:
+1. To run the desired "xxx" TP:
 ```
-docker compose up --build --remove-orphans
+run_discovery_xxx.sh
 ```
-1. Run the following command from the root of the cloned repo **(after the first build)**:
+1. To reset the TP **(Warning - this cannot be undone and will erase any change you did to the original version)**:
 ```
-docker compose up
+reset_discovery_xxx.sh
 ```
+Note: if you are asked to confirm during a reset, simply type "**y**" and press enter.
+## Functional version
 
-## Ports
-
-The services in the app run on the following ports:
-
-| Host Port | Service |   
-| - | - |   
-| 3000 | Grafana |   
-| 8086 | InfluxDB |   
-| 1880 | Node-Red |
-
-## Volumes
-
-Volumes are shared between container and hosting device. The main directory is:  
-```{repo-directory}/data```
-
-## Users
-
-The app creates two admin users - one for InfluxDB and one for Grafana. By default, the username and password of both accounts is `admin`. To override the default credentials, set the following environment variables before starting the app:
-
-* `INFLUXDB_USERNAME`
-* `INFLUXDB_PASSWORD`
-* `GRAFANA_USERNAME`
-* `GRAFANA_PASSWORD`
-
-## Database
-
-The app creates a default InfluxDB database called `db0`.
-
-## Data Sources
-
-The app creates a Grafana data source called `InfluxDB` that's connected to the default IndfluxDB database (e.g. `db0`).
-
-To provision additional data sources on start, see the Grafana [documentation](http://docs.grafana.org/administration/provisioning/#datasources) and add a config file to `./grafana-provisioning/datasources/` before starting the app.
-
-## Dashboards
-
-By default, the app will have a visualization dashboard.
-
-To provision additional dashboards on start, see the Grafana [documentation](http://docs.grafana.org/administration/provisioning/#dashboards) and add a config file to `./grafana-provisioning/dashboards/` before starting the app.
+1. To run the functional version:
+```
+run_fully_functional.sh
+```
+1. To reset the functional version **(Warning - this cannot be undone and will erase any change you did to the original version)**:
+```
+reset_fully_functional.sh
+```

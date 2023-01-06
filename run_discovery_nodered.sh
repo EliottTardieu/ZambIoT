@@ -1,0 +1,1 @@
+docker-compose -f discover_nodered.yml up --build

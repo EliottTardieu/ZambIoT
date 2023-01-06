@@ -1,0 +1,1 @@
+docker-compose -f discover_influx.yml up --build
