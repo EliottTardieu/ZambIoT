@@ -19,7 +19,7 @@ run_discovery_xxx.sh
 reset_discovery_xxx.sh
 ```
 Note: if you are asked to confirm during a reset, simply type "**y**" and press enter.
-## Functional version
+## Fully Functional version
 
 1. To run the functional version:
 ```
